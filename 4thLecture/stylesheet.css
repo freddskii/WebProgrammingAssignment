@@ -35,13 +35,13 @@ body{
 .banner {
     background-color: black;
     color: #35e67b;
-    text-align: center;   /* center header text */
-    padding: 5px;         /* add some spacing */
-    margin-bottom: 10px;  /* space below banner */
+    text-align: center;   
+    padding: 5px;         
+    margin-bottom: 10px;  
 }
 
 .card-content {
-    text-align: left;     /* left align normal text */
+    text-align: left;    
 }
 
 .title{
