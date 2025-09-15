@@ -1,0 +1,61 @@
+h1, h3{
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    font-family: "Inter", sans-serif;
+}
+
+#coloring{
+    color: #35e67b;
+}
+
+.container{
+    display: flex;
+    height: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.card {
+    background-color: #ffffff;
+    height: 100%;
+    width: 20%;
+    flex: 1;
+    outline: 1.5px solid black;
+    padding: 10px;
+}
+
+/* .banner{
+    width: 95%;
+    color: white;
+    background-color: black;    
+    text-align: center;
+    position: relative;
+    
+}
+
+.banner-p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+} */
+
+.banner {
+    background-color: black;
+    color: #35e67b;
+    text-align: center;   /* center header text */
+    padding: 5px;         /* add some spacing */
+    margin-bottom: 10px;  /* space below banner */
+}
+
+.card-content {
+    text-align: left;     /* left align normal text */
+}
+
+.title{
+    color: #35e67b;
+}
