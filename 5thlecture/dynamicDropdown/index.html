@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght,ELSH@100..900,35.4&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet">
+    <title>Dynamic Drop Down</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pencarian Barang Elektronik</h1>
+
+        <label for="merk">Brand</label>
+        <select id="merk" name="merk">
+            <option value="">-- Pilih Brand --</option>
+        </select>
+        
+        <label for="device">Jenis Device</label>
+        <select id="device" name="device" disabled>
+            <option value="">Pilih Brand dahulu</option>
+        </select>
+        
+        <label for="seri">Seri</label>
+        <select id="seri" name="seri" disabled>
+            <option value="">Pilih Device dahulu</option>
+        </select>
+
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght,ELSH@100..900,35.4&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet">
+    <title>Pencarian Kode Pos (Versi Lokal)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pencarian Kode Pos</h1>
+
+        <label for="provinsi">Provinsi</label>
+        <select id="provinsi" name="provinsi">
+            <option value="">-- Pilih Provinsi --</option>
+        </select>
+        
+        <label for="kabupaten">Kabupaten / Kota</label>
+        <select id="kabupaten" name="kabupaten" disabled>
+            <option value="">Pilih provinsi dahulu</option>
+        </select>
+        
+        <label for="kecamatan">Kecamatan</label>
+        <select id="kecamatan" name="kecamatan" disabled>
+            <option value="">Pilih kabupaten/kota dahulu</option>
+        </select>
+
+        <div id="hasil-pencarian"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
