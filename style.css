@@ -1,0 +1,22 @@
+.forms{
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    color: #f1f1f1;
+}
+
+a{
+    color: #f1f1f1;
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.container{
+    padding: 16px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+}
+
+.green{
+    color: #35e67b;
+}
