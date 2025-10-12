@@ -1,0 +1,38 @@
+.forms{
+    width: 50%;
+    /* align-content: center;     */
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+}
+
+.container{
+    padding: 16px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+}
+
+input[type=text], input[type=password], select{
+    width: 100%;
+    padding: 15px;
+    display: inline-block;
+    background-color: #5f5f5f;
+    border: none;
+    border-radius: 7px;
+    margin: 5px 0 22px 0;
+    color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+.submitButton{
+    width: 100%;
+    padding: 15px;
+    background-color: #35e67b;
+    color: #1f1f1f;
+    border: none;
+    border-radius: 3px;
+    margin: 5px 0 22px 0;
+}
+
+.errorMessage{
+  color: red;
+}

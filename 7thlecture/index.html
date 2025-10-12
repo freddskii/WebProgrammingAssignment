@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght,ELSH@100..900,35.4&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="forms">
+        <div class="container">
+            <form id="signupForm">
+                <h1 style="color: #35e67b;">Sign Up</h1>
+
+                <label for="fullName" style="color: #f1f1f1;"><b>Full Name</b></label><br>
+                <input type="text" id="fullName" name="fullName" placeholder="ex : Liem, Alfred Haryanto" ><br>
+
+                <label for="callName" style="color: #f1f1f1;"><b>Name</b></label><br>
+                <input type="text" id="callName" name="callName" placeholder="ex : Alfred" ><br>
+
+                <label for="email" style="color: #f1f1f1;"><b>Email</b></label><br>
+                <input type="text" id="email" name="email" placeholder="ex : alfred.haryanto@email.com" ><br>
+
+                <label for="password" style="color: #f1f1f1;"><b>Password</b></label><br>
+                <input type="password" id="password" name="password" ><br>
+
+                <label for="passwordConfirm" style="color: #f1f1f1;"><b>Confirm Password</b></label><br>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" ><br>
+
+                <label for="gender" style="color: #f1f1f1;"><b>Gender</b></label><br>
+                <select id="gender" name="gender">
+                    <option value="">-- Select Gender --</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select><br>
+
+                <p style="color: #f1f1f1;">Already have an account? <a href="#" style="color: #35e67b;">Log in</a></p>
+
+                <button type="submit" class="submitButton">Sign Up</button>
+            </form>
+            <div id="responseMessage"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          function isValidEmail(email) {
+              var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+              return regex.test(email);
+          }
+
+          $('#signupForm').on('submit', function(event) {
+              event.preventDefault();
+
+              $('#responseMessage').empty();
+              $('.errorMessage').remove();
+              $('input, select').removeClass('inputError');
+
+              var fullName = $('#fullName').val().trim();
+              var callName = $('#callName').val().trim();
+              var email = $('#email').val().trim();
+              var password = $('#password').val();
+              var passwordConfirm = $('#passwordConfirm').val();
+              var gender = $('#gender').val();
+              var isValid = true;
+
+              if (fullName === '') {
+                  $('#fullName').addClass('inputError');
+                  $('#fullName').after('<span class="errorMessage"">Please enter your full name.</span>');
+                  isValid = false;
+              }
+
+              if (callName === '') {
+                  $('#callName').addClass('inputError');
+                  $('#callName').after('<span class="errorMessage"">Please enter your name.</span>');
+                  isValid = false;
+              }
+
+              if (email === '') {
+                  $('#email').addClass('inputError');
+                  $('#email').after('<span class="errorMessage"">Please enter your email.</span>');
+                  isValid = false;
+              } else if (!isValidEmail(email)) {
+                  $('#email').addClass('inputError');
+                  $('#email').after('<span class="errorMessage"">Please enter a valid email address.</span>');
+                  isValid = false;
+              }
+
+              if (password === '') {
+                  $('#password').addClass('inputError');
+                  $('#password').after('<span class="errorMessage"">Please enter your password.</span>');
+                  isValid = false;
+              } else if (password.length < 6) {
+                  $('#password').addClass('inputError');
+                  $('#password').after('<span class="errorMessage"">Password must be at least 6 characters.</span>');
+                  isValid = false;
+              }
+
+              if (passwordConfirm !== password) {
+                  $('#passwordConfirm').addClass('inputError');
+                  $('#passwordConfirm').after('<span class="errorMessage"">Passwords do not match.</span>');
+                  isValid = false;
+              }
+
+              if (gender === '') {
+                  $('#gender').addClass('inputError');
+                  $('#gender').after('<span class="errorMessage"">Please select your gender.</span>');
+                  isValid = false;
+              }
+
+              if (isValid) {
+                  var formData = $(this).serialize();
+                  var submitButton = $(this).find('button[type="submit"]');
+                  var originalButtonHtml = submitButton.html();
+
+                  submitButton.html('<i class="fas fa-spinner fa-spin"></i> Submitting...');
+                  submitButton.prop('disabled', true);
+
+                  $.ajax({
+                      type: 'POST',
+                      url: 'https://jsonplaceholder.typicode.com/posts',
+                      data: formData,
+                      dataType: 'json',
+                      encode: true
+                  })
+                  .done(function(data) {
+                      $('#responseMessage').html("<p style='color: #35e67b; font-weight: 600;'>Successfully signed up!</p>");
+                      $('#signupForm')[0].reset();
+                  })
+                  .fail(function(data) {
+                      $('#responseMessage').html("<p style='color: red; font-weight: 600;'>An error occurred. Please try again.</p>");
+                  })
+                  .always(function() {
+                      submitButton.html(originalButtonHtml);
+                      submitButton.prop('disabled', false);
+                  });
+              }
+          });
+      });
+    </script>
+
+</body>
+</html>
